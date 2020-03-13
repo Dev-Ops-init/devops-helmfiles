@@ -1,0 +1,17 @@
+controller:
+
+  ingressClass: external-nginx
+
+  publishService:
+    enabled: true
+
+  replicaCount: 1
+
+  service:
+    targetPorts:
+      https: 80
+
+    loadBalancerSourceRanges: [0.0.0.0/0]
+
+  serviceAccount:
+    create: false

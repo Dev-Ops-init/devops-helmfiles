@@ -1,0 +1,185 @@
+master:
+
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "256Mi"
+    limits:
+      cpu: "1500m"
+      memory: "2096Mi"
+  
+  persistence:    
+    size: 30Gi
+
+  ingress:
+    enabled: true
+    apiversion: extensions/v1beta1
+    annotations:
+      kubernetes.io/ingress.class: external-nginx
+      kubernetes.io/tls-acme: "true"
+      nginx.ingress.kubernetes.io/proxy-body-size: "30m"
+    hostName: jenkinsk8s.rishabhlabs.in
+
+  jenkinsUrl: "https://jenkinsk8s.rishabhlabs.in" 
+
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "https://cdn.rawgit.com/afonsof/jenkins-material-theme/gh-pages/dist/material-orange.css"
+  
+  installPlugins:
+    - ace-editor:1.1
+    - amazon-ecr:1.6
+    - ansicolor:0.5.2
+    - ant:1.9
+    - antisamy-markup-formatter:1.5
+    - apache-httpcomponents-client-4-api:4.5.5-3.0
+    - authentication-tokens:1.3
+    - aws-credentials:1.23
+    - aws-java-sdk:1.11.562
+    - blueocean:1.9.0
+    - blueocean-autofavorite:1.2.2
+    - blueocean-bitbucket-pipeline:1.9.0
+    - blueocean-commons:1.9.0
+    - blueocean-config:1.9.0
+    - blueocean-core-js:1.9.0
+    - blueocean-dashboard:1.9.0
+    - blueocean-display-url:2.2.0
+    - blueocean-events:1.9.0
+    - blueocean-git-pipeline:1.9.0
+    - blueocean-github-pipeline:1.9.0
+    - blueocean-i18n:1.9.0
+    - blueocean-jira:1.9.0
+    - blueocean-jwt:1.9.0
+    - blueocean-personalization:1.9.0
+    - blueocean-pipeline-api-impl:1.9.0
+    - blueocean-pipeline-editor:1.9.0
+    - blueocean-pipeline-scm-api:1.9.0
+    - blueocean-rest:1.9.0
+    - blueocean-rest-impl:1.9.0
+    - blueocean-web:1.9.0
+    - bouncycastle-api:2.17
+    - branch-api:2.0.20
+    - build-environment:1.6
+    - build-keeper-plugin:1.3
+    - build-name-setter:1.7.0
+    - build-user-vars-plugin:1.5
+    - cloudbees-bitbucket-branch-source:2.2.13
+    - cloudbees-folder:6.9
+    - code-coverage-api:1.0.7
+    - command-launcher:1.2
+    - conditional-buildstep:1.3.6
+    - config-file-provider:3.3
+    - configuration-as-code:1.29
+    - configuration-as-code-support:1.12
+    - copyartifact:1.41
+    - credentials:2.3.0
+    - credentials-binding:1.20
+    - custom-tools-plugin:0.5
+    - delivery-pipeline-plugin:1.2.0
+    - display-url-api:2.2.0
+    - docker-commons:1.15
+    - docker-workflow:1.17
+    - durable-task:1.30
+    - envinject:2.3.0
+    - envinject-api:1.7
+    - extended-choice-parameter:0.76
+    - extended-read-permission:3.0
+    - external-monitor-job:1.7
+    - favorite:2.3.2
+    - ghprb:1.42.0
+    - git:3.9.1
+    - git-client:2.7.3
+    - git-server:1.7
+    - github:1.29.3
+    - github-api:1.92
+    - github-branch-source:2.4.1
+    - github-oauth:0.29
+    - greenballs:1.15
+    - handlebars:1.1.1
+    - handy-uri-templates-2-api:2.1.6-1.0
+    - htmlpublisher:1.17
+    - jackson2-api:2.9.9.1
+    - javadoc:1.4
+    - jdk-tool:1.1
+    - jenkins-design-language:1.9.0
+    - jira:3.0.4
+    - job-dsl:1.70
+    - jquery:1.12.4-0
+    - jquery-detached:1.2.1
+    - jquery-ui:1.0.2
+    - jsch:0.1.54.2
+    - junit:1.26.1
+    - kubernetes:1.16.7
+    - kubernetes-credentials:0.4.0
+    - last-changes:2.6.8
+    - ldap:1.20
+    - lockable-resources:2.3
+    - mailer:1.22
+    - mapdb-api:1.0.9.0
+    - matrix-auth:2.3
+    - matrix-project:1.13
+    - maven-plugin:3.1.2
+    - mercurial:2.4
+    - metrics:4.0.2.2
+    - momentjs:1.1.1
+    - nodejs:1.2.7
+    - pam-auth:1.4
+    - parameterized-trigger:2.35.2
+    - performance:3.12
+    - pipeline-aws:1.37
+    - pipeline-build-step:2.7
+    - pipeline-graph-analysis:1.7
+    - pipeline-input-step:2.8
+    - pipeline-maven:3.5.15
+    - pipeline-milestone-step:1.3.1
+    - pipeline-model-api:1.3.9
+    - pipeline-model-declarative-agent:1.1.1
+    - pipeline-model-definition:1.3.2
+    - pipeline-model-extensions:1.3.9
+    - pipeline-rest-api:2.10
+    - pipeline-stage-step:2.3
+    - pipeline-stage-tags-metadata:1.3.2
+    - pipeline-stage-view:2.10
+    - pipeline-utility-steps:2.3.0
+    - plain-credentials:1.4
+    - prometheus:2.0.0
+    - pubsub-light:1.12
+    - pyenv-pipeline:2.1.1-STAGING
+    - rebuild:1.29
+    - resource-disposer:0.14
+    - role-strategy:2.10
+    - run-condition:1.2
+    - saml:1.1.0
+    - sbt:1.5
+    - scm-api:2.3.0
+    - script-security:1.62
+    - simple-theme-plugin:0.5.1
+    - slack:2.29
+    - sonar:2.8.1
+    - sse-gateway:1.16
+    - ssh-credentials:1.17.1
+    - structs:1.20
+    - subversion:2.12.1
+    - terraform:1.0.9
+    - throttle-concurrents:2.0.1
+    - timestamper:1.8.10
+    - token-macro:2.5
+    - variant:1.3
+    - windows-slaves:1.3.1
+    - workflow-aggregator:2.6
+    - workflow-api:2.37
+    - workflow-basic-steps:2.12
+    - workflow-cps:2.74
+    - workflow-cps-global-lib:2.12
+    - workflow-durable-task-step:2.25
+    - workflow-job:2.34
+    - workflow-multibranch:2.20
+    - workflow-scm-step:2.7
+    - workflow-step-api:2.20
+    - workflow-support:3.3
+    - ws-cleanup:0.38
+    - xml-job-to-job-dsl:0.1.10
+
+agent:
+  podName: "jenkins-slave"

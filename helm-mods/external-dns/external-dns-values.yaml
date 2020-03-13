@@ -1,0 +1,29 @@
+aws:
+  ## AWS credentials
+  ##
+  credentials:
+    secretKey: ""
+    accessKey: ""
+    ## pre external-dns 0.5.9 home dir should be `/root/.aws`
+    ##
+    mountPath: "/.aws"
+  ## AWS region
+  ##
+  region: "eu-west-1"
+  ## Zone Filter. Available values are: public, private
+  ##
+  zoneType: ""
+  ## AWS Role to assume
+  ##
+  assumeRoleArn: ""
+  ## Maximum number of changes that will be applied in each batch
+  ##
+  batchChangeSize: 1000
+
+sources:
+  - ingress
+
+publishinternalservices: true
+
+domainFilters:
+  - rishabhlabs.in
